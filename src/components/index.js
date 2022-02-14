@@ -1,2 +1,3 @@
-export * from './Text';
+export * from './Nav';
 export * from './Page';
+export * from './Text';

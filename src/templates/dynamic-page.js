@@ -1,7 +1,11 @@
 import { buildComponent } from '../utils/buildComponent';
 
-const DynamicPage = ({ pageContext: { buildContext: { componentTree } } }) => {
-  console.log(componentTree);
+const DynamicPage = ({
+  pageContext: {
+    buildContext: { componentTree },
+  },
+}) => {
+  console.log({ componentTree });
   if (componentTree) {
     return buildComponent(componentTree);
   }

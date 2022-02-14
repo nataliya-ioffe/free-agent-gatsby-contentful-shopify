@@ -1,4 +1,4 @@
-const contentful = require("contentful");
+const contentful = require('contentful');
 const path = require('path');
 
 exports.createPages = async ({ actions }) => {
@@ -8,16 +8,17 @@ exports.createPages = async ({ actions }) => {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
     host: 'cdn.contentful.com',
   });
-  
+
   const res = await client.getEntries({
     content_type: 'page',
     include: 10,
     limit: 1000,
   });
+
   const content = res.items;
   const pages = content.map(buildTree);
 
-  pages.forEach(page => {
+  pages.forEach((page) => {
     createPage({
       path: page.props.slug ? page.props.slug.replace('index', '/') : '/',
       component: path.resolve('./src/templates/dynamic-page.js'),
@@ -27,8 +28,8 @@ exports.createPages = async ({ actions }) => {
         },
       },
     });
-  })
-}
+  });
+};
 
 function buildTree(entry) {
   if (!entry || !entry.sys) {

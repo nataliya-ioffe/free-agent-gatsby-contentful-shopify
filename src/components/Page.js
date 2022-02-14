@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const Page = ({ pageContent }) => {
-  return (
-    <div>{ pageContent }</div>
-  );
+  console.log(pageContent);
+  return <div>{pageContent}</div>;
 };
